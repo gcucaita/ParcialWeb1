@@ -1,0 +1,46 @@
+<section class="container my-4">
+  <h2 class="mb-3">Listado de vehiculos</h2>
+  <div class="table-responsive" *ngIf="vehiculos.length > 0; else sinVehiculos">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Marca</th>
+          <th>Linea</th>
+          <th>Modelo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ vehiculo.marca }}</td>
+          <td>{{ vehiculo.linea }}</td>
+          <td>{{ vehiculo.modelo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #sinVehiculos>
+    <p class="alert alert-info mb-0">No hay vehiculos para mostrar.</p>
+  </ng-template>
+</section>
+
+<section class="container mb-4" *ngIf="resumenMarcas.length > 0">
+  <h3 class="mb-3">Total de vehiculos por marca</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Marca</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resumen of resumenMarcas">
+          <td>{{ resumen.marca }}</td>
+          <td>{{ resumen.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
